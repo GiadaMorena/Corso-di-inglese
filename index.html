@@ -1,0 +1,183 @@
+import React from 'react';
+import { UserCircle, Mail, Phone, Facebook, Twitter, Instagram, Clock, Globe2, User2 } from 'lucide-react';
+
+const LandingPage = () => {
+  const testimonials = [
+    {
+      name: "Marco Rossi",
+      role: "Studente",
+      text: "Grazie a questo corso ho migliorato enormemente il mio inglese e ora posso viaggiare con più sicurezza!"
+    },
+    {
+      name: "Laura Bianchi",
+      role: "Professionista",
+      text: "Gli insegnanti sono fantastici e sempre disponibili. Un corso davvero utile per chi vuole migliorare l’inglese."
+    },
+    {
+      name: "Giovanni Verdi",
+      role: "Imprenditore",
+      text: "In pochi mesi ho fatto progressi incredibili. Consigliatissimo!"
+    }
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Gestione del form
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Migliora il tuo inglese con il nostro corso interattivo online!
+          </h1>
+          <p className="text-xl mb-8">
+            Diventa sicuro e fluente grazie alle nostre lezioni in diretta e supporto continuo
+          </p>
+          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full text-lg transform hover:scale-105 transition-transform">
+            Iscriviti ora
+          </button>
+        </div>
+      </header>
+
+      {/* Descrizione del corso */}
+      <section className="py-16 container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-3xl font-bold mb-6">Cosa include il corso</h2>
+            <ul className="space-y-4">
+              <li className="flex items-center">
+                <Globe2 className="text-green-600 mr-3" />
+                <span>Lezioni online interattive</span>
+              </li>
+              <li className="flex items-center">
+                <Clock className="text-green-600 mr-3" />
+                <span>Accesso illimitato ai materiali</span>
+              </li>
+              <li className="flex items-center">
+                <User2 className="text-green-600 mr-3" />
+                <span>Supporto personalizzato degli insegnanti</span>
+              </li>
+            </ul>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h3 className="text-2xl font-bold mb-4">Abbonamento Mensile</h3>
+            <p className="text-4xl font-bold text-green-600 mb-4">€14,90<span className="text-lg text-gray-600">/mese</span></p>
+            <button className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
+              Inizia ora
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-gray-100 py-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">Le opinioni dei nostri studenti</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+                <p className="text-gray-600 mb-4">"{testimonial.text}"</p>
+                <div className="flex items-center">
+                  <UserCircle className="text-green-600 w-12 h-12 mr-4" />
+                  <div>
+                    <p className="font-bold">{testimonial.name}</p>
+                    <p className="text-gray-600">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Form di contatto */}
+      <section className="py-16 container mx-auto px-6">
+        <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-center mb-8">Contattaci</h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-gray-700 mb-2">Nome</label>
+                <input
+                  type="text"
+                  className="w-full p-3 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-2">Cognome</label>
+                <input
+                  type="text"
+                  className="w-full p-3 border rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Email</label>
+              <input
+                type="email"
+                className="w-full p-3 border rounded-lg"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700"
+            >
+              Invia
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Contatti</h3>
+              <div className="space-y-2">
+                <p className="flex items-center">
+                  <Mail className="mr-2" /> info@corsoinglese.it
+                </p>
+                <p className="flex items-center">
+                  <Phone className="mr-2" /> +39 123 456 7890
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Seguici</h3>
+              <div className="flex space-x-4">
+                <Facebook className="hover:text-blue-400 cursor-pointer" />
+                <Twitter className="hover:text-blue-400 cursor-pointer" />
+                <Instagram className="hover:text-blue-400 cursor-pointer" />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Newsletter</h3>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="La tua email"
+                  className="p-2 rounded-l-lg flex-1 text-gray-800"
+                />
+                <button className="bg-green-600 px-4 rounded-r-lg hover:bg-green-700">
+                  Iscriviti
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="text-center mt-8 pt-8 border-t border-gray-700">
+            <p>&copy; 2024 Corso Inglese Online. Tutti i diritti riservati.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default LandingPage;
